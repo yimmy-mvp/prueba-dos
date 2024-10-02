@@ -1,6 +1,8 @@
 // Asegúrate de que el script se ejecuta después de que la página se haya cargado
 document.addEventListener("DOMContentLoaded", function() {
 
+    let map;  // Definir la variable del mapa fuera de las funciones
+
     // Paso 1: Inicia sesión
     document.getElementById("loginForm").addEventListener("submit", function(event) {
         event.preventDefault();  // Prevenir el envío del formulario
@@ -10,13 +12,22 @@ document.addEventListener("DOMContentLoaded", function() {
             // Ocultar el paso 1 y mostrar el paso 2 (mapa)
             document.getElementById("step1").classList.add("hidden");
             document.getElementById("step2").classList.remove("hidden");
-            displayMap(username);  // Mostrar el mapa
+
+            // Inicializar el mapa solo la primera vez que el usuario inicia sesión
+            if (!map) {
+                displayMap(username);  // Mostrar el mapa
+            } else {
+                // Si el mapa ya ha sido inicializado, asegurarse de que se redibuje correctamente
+                setTimeout(() => {
+                    map.invalidateSize();
+                }, 100);
+            }
         }
     });
 
     // Función para mostrar el mapa con las ofertas disponibles
     function displayMap(username) {
-        const map = L.map('map').setView([13.69294, -89.21819], 13);
+        map = L.map('map').setView([13.69294, -89.21819], 13);  // Inicializar mapa
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
