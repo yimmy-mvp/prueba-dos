@@ -8,6 +8,17 @@ section {
     min-height: 100vh;
     transition: all 0.5s ease;
 }
+
+#map {
+    height: 400px; /* Ajusta el tamaño según tus necesidades */
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+
 .hidden {
     display: none;
 }
