@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+section {
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.5s ease;
+}
+.hidden {
+    display: none;
+}
+.step {
+    text-align: center;
+    padding: 40px;
+    border-bottom: 1px solid #ccc;
+}
+.button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 20px 0;
+}
+.businesses {
+    margin: 20px;
+}
+.business {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}
+#qrCode {
+    margin-top: 20px;
+}
